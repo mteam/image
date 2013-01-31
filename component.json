@@ -1,0 +1,11 @@
+{
+  "name": "image",
+  "repo": "mteam/image",
+  "version": "0.1.0",
+  "dependencies": {
+    "mteam/drawable": "*"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}
