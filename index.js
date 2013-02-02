@@ -9,7 +9,7 @@ function Image(source) {
 
 module.exports = Image;
 
-Image.prototype = Object.create(Drawable);
+Image.prototype = Object.create(Drawable.prototype);
 
 Image.prototype.draw = function(ctx, x, y) {
   ctx.drawImage(this.source, x, y);
