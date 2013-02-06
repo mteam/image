@@ -9,7 +9,7 @@ describe('Image', function() {
 
     var asset = sham.mock();
 
-    asset.method('getContent')
+    asset.spy('getContent')
       .return(source);
 
     var image = new Image(asset);
@@ -23,7 +23,7 @@ describe('Image', function() {
 
     var context = sham.mock();
 
-    context.method('drawImage')
+    context.spy('drawImage')
       .args(source, 10, 20)
       .called();
 
@@ -39,7 +39,7 @@ describe('Image', function() {
 
     var context = sham.mock();
     
-    context.method('drawImage')
+    context.spy('drawImage')
       .args(source, 10, 20, 30, 40, 50, 60, 30, 40)
       .called();
 
