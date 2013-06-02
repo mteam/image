@@ -1,24 +1,24 @@
-var Drawable = require('drawable');
+module.exports = Image;
 
 function Image(source) {
-  this.source = source.getContent ? source.getContent() : source;
+  this.source = source.content ? source.content : source;
 
   this.width = this.source.width;
   this.height = this.source.height;
 }
 
-module.exports = Image;
+Image.prototype = {
 
-Image.prototype = Object.create(Drawable.prototype);
+  draw: function(ctx, x, y) {
+    ctx.drawImage(this.source, x, y);
+  },
 
-Image.prototype.draw = function(ctx, x, y) {
-  ctx.drawImage(this.source, x, y);
-};
+  drawRect: function(ctx, rect, x, y) {
+    ctx.drawImage(
+      this.source,
+      rect.left, rect.top, rect.width, rect.height,
+      x, y, rect.width, rect.height
+    );
+  }
 
-Image.prototype.drawRect = function(ctx, rect, x, y) {
-  ctx.drawImage(
-    this.source,
-    rect.left, rect.top, rect.width, rect.height,
-    x, y, rect.width, rect.height
-  );
 };
